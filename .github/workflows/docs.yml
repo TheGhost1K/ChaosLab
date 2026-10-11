@@ -62,7 +62,23 @@ jobs:
         run: docfx docs/docfx.json
 
       - name: Add .nojekyll
-        run: touch docs/_site/.nojekyll
+        shell: pwsh
+        run: |
+          New-Item -ItemType File -Path docs/_site/.nojekyll -Force | Out-Null
+          Write-Host "Created .nojekyll"
+          Get-ChildItem docs/_site | Select-Object Name
+
+      - name: Verify api/index.html exists
+        shell: pwsh
+        run: |
+          $apiIndex = "docs/_site/api/index.html"
+          if (-not (Test-Path $apiIndex)) {
+            Write-Error "FATAL: $apiIndex not found!"
+            Write-Host "Contents of docs/_site/api/:"
+            Get-ChildItem docs/_site/api -ErrorAction SilentlyContinue | Select-Object Name
+            exit 1
+          }
+          Write-Host "OK: $apiIndex exists ($((Get-Item $apiIndex).Length) bytes)"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
