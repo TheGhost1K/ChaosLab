@@ -4,5 +4,5 @@
 - name: Статьи
   href: articles/toc.yml
 
-- name: API
-  href: api/toc.yml
+- name: API Reference
+  href: api/index.md

@@ -38,6 +38,9 @@ bld/
 docs/_site/
 docs/api/
 _docs_build/
+docs/api/toc.yml
+!docs/api/index.md
+docs/obj/
 
 # Benchmark results
 BenchmarkDotNet.Artifacts/

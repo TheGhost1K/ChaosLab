@@ -4,15 +4,15 @@
 
 ### Windows
 
-Скачайте последний релиз с [GitHub Releases](https://github.com/USER/ChaosLab/releases)
+Скачайте последний релиз с [GitHub Releases](https://github.com/TheGhost1K/ChaosLab/releases)
 и распакуйте в любую папку. Запустите `ChaosLab.exe`.
 
 ### Сборка из исходников
 
 ```bash
-git clone https://github.com/USER/ChaosLab.git
+git clone https://github.com/TheGhost1K/ChaosLab.git
 cd ChaosLab
-dotnet build ChaosLab.sln -c Release
+dotnet build ChaosLab.slnx -c Release
 ```
 
 Требуется **.NET 10 SDK** и **Windows 10/11**.

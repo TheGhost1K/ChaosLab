@@ -122,7 +122,8 @@ dotnet run --project src/ChaosLab/ChaosLab.csproj
 | [Режимы отображения](docs/articles/rendering.md) | Attractor, Bifurcation, Trail и другие |
 | [Архитектура](docs/articles/architecture.md) | Структура проекта и паттерны |
 | [Разработка](docs/articles/development.md) | Как добавить систему или метод |
-| [API Reference](https://theghost1k.github.io/ChaosLab/api/) | Автогенерируемая справка DocFX |
+| [API Reference](https://theghost1k.github.io/ChaosLab/api/index.html) | Автогенерируемая справка DocFX |
+| [Сайт документации](https://theghost1k.github.io/ChaosLab/) | Полная версия статей с навигацией |
 
 ## Примеры
 
