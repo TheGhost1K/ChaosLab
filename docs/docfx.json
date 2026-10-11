@@ -1,0 +1,50 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [ "src/ChaosLab/*.csproj" ],
+          "src": ".."
+        }
+      ],
+      "dest": "api",
+      "properties": { "TargetFramework": "net10.0-windows" }
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "index.md",
+          "toc.yml",
+          "articles/**/*.md",
+          "articles/**/*.yml",
+          "api/**/*.md",
+          "api/**/*.yml"
+        ],
+        "exclude": [
+          "_site/**",
+          "obj/**",
+          "templates/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [ "images/**" ]
+      }
+    ],
+    "dest": "_site",
+    "globalMetadata": {
+      "_appTitle": "ChaosLab",
+      "_appFooter": "ChaosLab — исследование хаоса. MIT License.",
+      "_gitContribute": {
+        "repo": "https://github.com/TheGhost1K/ChaosLab",
+        "branch": "master"
+      },
+      "_enableSearch": true
+    },
+    "template": [ "default", "modern" ],
+    "postProcessors": [ "ExtractSearchIndex" ]
+  }
+}

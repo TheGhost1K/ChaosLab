@@ -1,0 +1,17 @@
+- name: Начало работы
+  href: getting-started.md
+
+- name: Режимы отображения
+  href: rendering.md
+
+- name: Архитектура
+  href: architecture.md
+
+- name: Разработка
+  href: development.md
+
+- name: Системы
+  href: systems/index.md
+
+- name: Методы анализа
+  href: methods/index.md

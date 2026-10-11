@@ -1,0 +1,108 @@
+- name: Обзор
+  href: index.md
+
+# ─── Классические потоки ───
+- name: Lorenz
+  href: lorenz.md
+
+- name: Rössler
+  href: rossler.md
+
+- name: Aizawa
+  href: aizawa.md
+
+- name: Thomas
+  href: thomas.md
+
+- name: Halvorsen
+  href: halvorsen.md
+
+- name: Chen
+  href: chen.md
+
+- name: Dadras
+  href: dadras.md
+
+- name: Four-Wing
+  href: four-wing.md
+
+- name: Sprott A
+  href: sprott-a.md
+
+# ─── Физические потоки ───
+- name: Chua's Circuit
+  href: chua.md
+
+- name: Rikitake Dynamo
+  href: rikitake.md
+
+- name: Newton-Leipnik
+  href: newton-leipnik.md
+
+- name: Rabinovich-Fabrikant
+  href: rabinovich-fabrikant.md
+
+- name: Shimizu-Morioka
+  href: shimizu-morioka.md
+
+- name: Nosé-Hoover
+  href: nose-hoover.md
+
+- name: Langford
+  href: langford.md
+
+# ─── Гамильтоновы ───
+- name: Hénon-Heiles
+  href: henon-heiles.md
+
+- name: FPUT-β
+  href: fput-beta.md
+
+- name: Coupled Pendulums
+  href: coupled-pendulums.md
+
+# ─── Высокоразмерные ───
+- name: Lorenz-96
+  href: lorenz-96.md
+
+# ─── Реакционно-диффузионные ───
+- name: Gray-Scott
+  href: gray-scott.md
+
+# ─── Классические отображения ───
+- name: Logistic
+  href: logistic.md
+
+- name: Hénon
+  href: henon.md
+
+- name: Ikeda
+  href: ikeda.md
+
+- name: Clifford
+  href: clifford.md
+
+- name: De Jong
+  href: de-jong.md
+
+- name: Tinkerbell
+  href: tinkerbell.md
+
+- name: Gumowski-Mira
+  href: gumowski-mira.md
+
+- name: Standard
+  href: standard.md
+
+- name: Tent
+  href: tent.md
+
+- name: Gauss
+  href: gauss.md
+
+# ─── Сохраняющее площадь ───
+- name: Arnold Cat
+  href: arnold-cat.md
+
+- name: Circle Map
+  href: circle-map.md

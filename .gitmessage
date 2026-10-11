@@ -1,0 +1,11 @@
+# <тип>(<область>): <краткое описание>
+#
+# Подробное описание (опционально). Строки ≤ 72 символов.
+#
+# Типы: feat | fix | docs | refactor | perf | test | build | chore
+# Область: core | systems | analysis | rendering | ui | docs
+#
+# Пример:
+#   feat(systems): добавлена система Rabinovich-Fabrikant
+#   fix(analysis): исправлена инвертированная ось Y в LyapunovMap
+#   docs(readme): добавлен раздел про Gray-Scott

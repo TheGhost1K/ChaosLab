@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Вопросы и обсуждения
+    url: https://github.com/TheGhost1K/ChaosLab/discussions
+    about: Задайте вопрос, начните дискуссию или поделитесь идеей
+  - name: 📖 Документация
+    url: https://github.com/TheGhost1K/ChaosLab/tree/master/docs
+    about: Пользовательские статьи, архитектура, разработка
+  - name: 🐛 Уже известные проблемы
+    url: https://github.com/TheGhost1K/ChaosLab/issues?q=is%3Aissue+is%3Aopen
+    about: Проверьте, может ваша проблема уже описана

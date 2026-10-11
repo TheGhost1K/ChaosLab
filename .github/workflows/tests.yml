@@ -1,0 +1,179 @@
+name: Tests & Coverage
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:   # позволяет запускать вручную
+
+permissions:
+  contents: read
+  pull-requests: write   # для комментариев от Codecov в PR
+
+env:
+  DOTNET_NOLOGO: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
+
+jobs:
+  test:
+    name: Test on Windows
+    runs-on: windows-latest
+    timeout-minutes: 30
+
+    steps:
+      # ───────────────────────────────────────────────────────────
+      # 1. Код и окружение
+      # ───────────────────────────────────────────────────────────
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # для codecov diff
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.NUGET_PACKAGES }}
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj', '**/Directory.Build.props') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      # ───────────────────────────────────────────────────────────
+      # 2. Восстановление и сборка
+      # ───────────────────────────────────────────────────────────
+
+      - name: Restore
+        run: dotnet restore ChaosLab.sln
+
+      - name: Build
+        run: dotnet build ChaosLab.sln -c Release --no-restore
+
+      # ───────────────────────────────────────────────────────────
+      # 3. Подготовка runsettings (настройки из удалённого файла)
+      # ───────────────────────────────────────────────────────────
+
+      - name: Create coverage settings
+        shell: pwsh
+        run: |
+          @'
+          <?xml version="1.0" encoding="utf-8"?>
+          <RunSettings>
+            <DataCollectionRunSettings>
+              <DataCollectors>
+                <DataCollector friendlyName="Code Coverage">
+                  <Configuration>
+                    <Format>cobertura</Format>
+                    <ExcludeByAttribute>
+                      GeneratedCodeAttribute,
+                      ExcludeFromCodeCoverageAttribute,
+                      CompilerGeneratedAttribute
+                    </ExcludeByAttribute>
+                    <ExcludeByFile>
+                      **/Views/**,
+                      **/App.xaml.cs,
+                      **/obj/**,
+                      **/bin/**,
+                      **/*.g.cs,
+                      **/*.g.i.cs
+                    </ExcludeByFile>
+                    <SkipAutoProps>true</SkipAutoProps>
+                  </Configuration>
+                </DataCollector>
+              </DataCollectors>
+            </DataCollectionRunSettings>
+          </RunSettings>
+          '@ | Out-File -FilePath coverage.runsettings -Encoding UTF8
+
+      # ───────────────────────────────────────────────────────────
+      # 4. Запуск тестов с покрытием (MTP)
+      # ───────────────────────────────────────────────────────────
+
+      - name: Test with coverage
+        shell: pwsh
+        run: |
+          dotnet test ChaosLab.sln `
+            -c Release `
+            --no-build `
+            --report-trx `
+            --report-trx-filename results.trx `
+            --coverage `
+            --coverage-output-format cobertura `
+            --coverage-settings coverage.runsettings `
+            --results-directory ./artifacts/test-results
+
+      # ───────────────────────────────────────────────────────────
+      # 5. Отчёт о покрытии
+      # ───────────────────────────────────────────────────────────
+
+      - name: Install ReportGenerator
+        if: always()
+        run: dotnet tool install -g dotnet-reportgenerator-globaltool
+
+      - name: Generate coverage report
+        if: always()
+        shell: pwsh
+        run: |
+          reportgenerator `
+            -reports:./artifacts/test-results/**/coverage.cobertura.xml `
+            -targetdir:./artifacts/coverage-html `
+            -reporttypes:"Html;MarkdownSummaryGithub;Cobertura;TextSummary"
+
+      - name: Display coverage summary
+        if: always()
+        shell: pwsh
+        run: |
+          if (Test-Path ./artifacts/coverage-html/Summary.txt) {
+            Get-Content ./artifacts/coverage-html/Summary.txt
+          }
+
+      - name: Add coverage summary to GitHub
+        if: always()
+        shell: pwsh
+        run: |
+          if (Test-Path ./artifacts/coverage-html/SummaryGithub.md) {
+            Get-Content ./artifacts/coverage-html/SummaryGithub.md `
+              >> $env:GITHUB_STEP_SUMMARY
+          }
+
+      # ───────────────────────────────────────────────────────────
+      # 6. Артефакты
+      # ───────────────────────────────────────────────────────────
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: ./artifacts/test-results/
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Upload coverage HTML
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: ./artifacts/coverage-html/
+          retention-days: 30
+          if-no-files-found: warn
+
+      # ───────────────────────────────────────────────────────────
+      # 7. Загрузка в Codecov
+      # ───────────────────────────────────────────────────────────
+
+      - name: Upload to Codecov
+        if: always()
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./artifacts/test-results/**/coverage.cobertura.xml
+          fail_ci_if_error: false
+          token: ${{ secrets.CODECOV_TOKEN }}
+          verbose: true

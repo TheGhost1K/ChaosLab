@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+    <DataCollectionRunSettings>
+        <DataCollectors>
+            <DataCollector friendlyName="XPlat code coverage">
+                <Configuration>
+                    <Format>cobertura</Format>
+                    <ExcludeByAttribute>GeneratedCodeAttribute,ExcludeFromCodeCoverageAttribute,CompilerGeneratedAttribute</ExcludeByAttribute>
+                    <ExcludeByFile>
+                        **/Views/**,
+                        **/App.xaml.cs,
+                        **/obj/**,
+                        **/bin/**,
+                        **/*.g.cs,
+                        **/*.g.i.cs
+                    </ExcludeByFile>
+                    <SkipAutoProps>true</SkipAutoProps>
+                </Configuration>
+            </DataCollector>
+        </DataCollectors>
+    </DataCollectionRunSettings>
+</RunSettings>

@@ -1,0 +1,116 @@
+<Solution>
+  <Folder Name="/.github/">
+    <File Path=".github/dependabot.yml" />
+    <File Path=".github/PULL_REQUEST_TEMPLATE.md" />
+  </Folder>
+  <Folder Name="/.github/ISSUE_TEMPLATE/">
+    <File Path=".github/ISSUE_TEMPLATE/bug_report.md" />
+    <File Path=".github/ISSUE_TEMPLATE/config.yml" />
+    <File Path=".github/ISSUE_TEMPLATE/feature_request.md" />
+  </Folder>
+  <Folder Name="/.github/workflows/">
+    <File Path=".github/workflows/build.yml" />
+    <File Path=".github/workflows/tests.yml" />
+    <File Path=".github/workflows/docs.yml" />
+  </Folder>
+  <Folder Name="/src/" />
+  <Folder Name="/src/ChaosLab/">
+    <Project Path="src/ChaosLab/ChaosLab.csproj" />
+  </Folder>
+  <Folder Name="/docs/">
+    <File Path="docs/docfx.json" />
+    <File Path="docs/index.md" />
+    <File Path="docs/toc.yml" />
+  </Folder>
+  <Folder Name="/docs/articles/">
+    <File Path="docs/articles/architecture.md" />
+    <File Path="docs/articles/development.md" />
+    <File Path="docs/articles/getting-started.md" />
+    <File Path="docs/articles/rendering.md" />
+    <File Path="docs/articles/toc.yml" />
+  </Folder>
+  <Folder Name="/docs/articles/systems/">
+    <File Path="docs/articles/systems/coupled-pendulums.md" />
+    <File Path="docs/articles/systems/aizawa.md" />
+    <File Path="docs/articles/systems/clifford.md" />
+    <File Path="docs/articles/systems/dadras.md" />
+    <File Path="docs/articles/systems/de-jong.md" />
+    <File Path="docs/articles/systems/arnold-cat.md" />
+    <File Path="docs/articles/systems/chua.md" />
+    <File Path="docs/articles/systems/circle-map.md" />
+    <File Path="docs/articles/systems/chen.md" />
+    <File Path="docs/articles/systems/gray-scott.md" />
+    <File Path="docs/articles/systems/henon.md" />
+    <File Path="docs/articles/systems/index.md" />
+    <File Path="docs/articles/systems/logictic.md" />
+    <File Path="docs/articles/systems/lorenz.md" />
+    <File Path="docs/articles/systems/lorenz-96.md" />
+    <File Path="docs/articles/systems/rossler.md" />
+    <File Path="docs/articles/systems/newton-leipnik.md" />
+    <File Path="docs/articles/systems/rikitake.md" />
+    <File Path="docs/articles/systems/fput-beta.md" />
+    <File Path="docs/articles/systems/henon-heiles.md" />
+    <File Path="docs/articles/systems/toc.yml" />
+    <File Path="docs/articles/systems/four-wing.md" />
+    <File Path="docs/articles/systems/gauss.md" />
+    <File Path="docs/articles/systems/gumowski-mira.md" />
+    <File Path="docs/articles/systems/halvorsen.md" />
+    <File Path="docs/articles/systems/ikeda.md" />
+    <File Path="docs/articles/systems/langford.md" />
+    <File Path="docs/articles/systems/nose-hoover.md" />
+    <File Path="docs/articles/systems/rabinovich-fabrikant.md" />
+    <File Path="docs/articles/systems/shimizu-morioka.md" />
+    <File Path="docs/articles/systems/sprott-a.md" />
+    <File Path="docs/articles/systems/standard.md" />
+    <File Path="docs/articles/systems/tent.md" />
+    <File Path="docs/articles/systems/thomas.md" />
+    <File Path="docs/articles/systems/tinkerbell.md" />
+  </Folder>
+  <Folder Name="/docs/articles/methods/">
+    <File Path="docs/articles/methods/basin-of-attraction.md" />
+    <File Path="docs/articles/methods/box-counting.md" />
+    <File Path="docs/articles/methods/dfa.md" />
+    <File Path="docs/articles/methods/adaptive-integrators.md" />
+    <File Path="docs/articles/methods/approximate-entropy.md" />
+    <File Path="docs/articles/methods/basin-entropy.md" />
+    <File Path="docs/articles/methods/correlation-dimension.md" />
+    <File Path="docs/articles/methods/lyapunov.md" />
+    <File Path="docs/articles/methods/multifractal.md" />
+    <File Path="docs/articles/methods/index.md" />
+    <File Path="docs/articles/methods/multiscale-entropy.md" />
+    <File Path="docs/articles/methods/resonance-analysis.md" />
+    <File Path="docs/articles/methods/rqa.md" />
+    <File Path="docs/articles/methods/symbolic-dynamics.md" />
+    <File Path="docs/articles/methods/higuchi-fd.md" />
+    <File Path="docs/articles/methods/ks-entropy.md" />
+    <File Path="docs/articles/methods/lempel-ziv.md" />
+    <File Path="docs/articles/methods/predictability.md" />
+    <File Path="docs/articles/methods/symplectic-integrators.md" />
+    <File Path="docs/articles/methods/toc.yml" />
+    <File Path="docs/articles/methods/hurst-exponent.md" />
+    <File Path="docs/articles/methods/kaplan-yorke.md" />
+    <File Path="docs/articles/methods/permutation-entropy.md" />
+    <File Path="docs/articles/methods/poincare-section.md" />
+    <File Path="docs/articles/methods/power-spectrum.md" />
+    <File Path="docs/articles/methods/return-map.md" />
+    <File Path="docs/articles/methods/sample-entropy.md" />
+    <File Path="docs/articles/methods/zero-one-test.md" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ChaosLab.Tests/ChaosLab.Tests.csproj" Id="956d3c8c-5994-4d99-8ce3-c24668b5147e" />
+  </Folder>
+  <Folder Name="/Элементы решения/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path=".gitmessage" />
+    <File Path="CHANGELOG.md" />
+    <File Path="codecov.yml" />
+    <File Path="CONTRIBUTING.md" />
+    <File Path="Directory.Build.props" />
+    <File Path="global.json" />
+    <File Path="LICENSE.txt" />
+    <File Path="README.md" />
+    <File Path="SECURITY.md" />
+  </Folder>
+</Solution>

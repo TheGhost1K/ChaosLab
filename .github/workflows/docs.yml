@@ -1,0 +1,68 @@
+name: Deploy Documentation to Pages
+
+on:
+  # Запускается при push в master, если изменились исходники или docs
+  push:
+    branches: [ master ]
+    paths:
+      - 'docs/**'
+      - 'src/**'
+      - '.github/workflows/docs.yml'
+  # Позволяет запускать вручную из вкладки Actions
+  workflow_dispatch:
+
+# Разрешения, необходимые для деплоя на Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Только один деплой одновременно
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Install DocFX
+        run: dotnet tool install -g docfx
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build library
+        run: dotnet build src/ChaosLab/ChaosLab.csproj -c Release --no-restore
+
+      - name: Build docs
+        run: docfx docs/docfx.json
+
+      - name: Add .nojekyll
+        run: touch docs/_site/.nojekyll
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'docs/_site'
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

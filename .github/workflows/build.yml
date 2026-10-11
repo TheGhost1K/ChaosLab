@@ -1,0 +1,35 @@
+name: Build & Test
+
+on:
+  push:
+    branches: [ master, develop ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+
+    - name: Restore
+      run: dotnet restore ChaosLab.sln
+
+    - name: Build
+      run: dotnet build ChaosLab.sln --configuration Release --no-restore
+
+    - name: Test
+      run: dotnet test ChaosLab.sln --configuration Release --no-build --verbosity normal
+
+    - name: Publish artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: ChaosLab-Release
+        path: src/ChaosLab/bin/Release/net10.0-windows/
+        retention-days: 30

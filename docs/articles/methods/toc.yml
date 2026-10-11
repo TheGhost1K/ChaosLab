@@ -1,0 +1,88 @@
+- name: Обзор
+  href: index.md
+
+# ─── Спектральные ───
+- name: Показатели Ляпунова
+  href: lyapunov.md
+
+- name: Power Spectrum
+  href: power-spectrum.md
+
+- name: KS Entropy
+  href: ks-entropy.md
+
+- name: Резонансный анализ
+  href: resonance-analysis.md
+
+# ─── Размерности ───
+- name: Корреляционная размерность
+  href: correlation-dimension.md
+
+- name: Box-counting D_box
+  href: box-counting.md
+
+- name: Kaplan-Yorke D_KY
+  href: kaplan-yorke.md
+
+- name: Higuchi FD
+  href: higuchi-fd.md
+
+- name: Multifractal
+  href: multifractal.md
+
+# ─── Энтропии ───
+- name: Sample Entropy
+  href: sample-entropy.md
+
+- name: Approximate Entropy
+  href: approximate-entropy.md
+
+- name: Permutation Entropy
+  href: permutation-entropy.md
+
+- name: Multiscale Entropy
+  href: multiscale-entropy.md
+
+- name: Hurst exponent
+  href: hurst-exponent.md
+
+- name: DFA
+  href: dfa.md
+
+# ─── Сложность ───
+- name: Lempel-Ziv
+  href: lempel-ziv.md
+
+- name: Символьная динамика
+  href: symbolic-dynamics.md
+
+# ─── Тесты на хаос ───
+- name: 0–1 тест
+  href: zero-one-test.md
+
+- name: RQA
+  href: rqa.md
+
+# ─── Геометрия ───
+- name: Сечения Пуанкаре
+  href: poincare-section.md
+
+- name: Бассейны притяжения
+  href: basin-of-attraction.md
+
+- name: Return map
+  href: return-map.md
+
+# ─── Предсказуемость ───
+- name: Basin Entropy
+  href: basin-entropy.md
+
+- name: Predictability
+  href: predictability.md
+
+# ─── Интеграторы ───
+- name: Adaptive Integrators
+  href: adaptive-integrators.md
+
+- name: Symplectic Integrators
+  href: symplectic-integrators.md

@@ -1,0 +1,21 @@
+coverage:
+  status:
+    project:
+      default:
+        target: 60%
+        threshold: 2%
+    patch:
+      default:
+        target: 70%
+
+ignore:
+  - "tests/**"
+  - "src/ChaosLab/Views/**"
+  - "src/ChaosLab/App.xaml.cs"
+  - "src/ChaosLab/obj/**"
+  - "src/ChaosLab/bin/**"
+
+comment:
+  layout: "reach, diff, flags, files"
+  behavior: default
+  require_changes: false
