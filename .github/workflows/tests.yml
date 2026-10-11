@@ -121,10 +121,20 @@ jobs:
         if: always()
         shell: pwsh
         run: |
+          $coverageFiles = Get-ChildItem -Path ./artifacts/test-results -Recurse -Filter *.cobertura.xml
+          
+          if ($coverageFiles.Count -eq 0) {
+            Write-Host "No coverage files found, skipping report generation."
+            exit 0
+          }
+          
+          Write-Host "Found $($coverageFiles.Count) coverage file(s):"
+          $coverageFiles | ForEach-Object { Write-Host "  $($_.FullName)" }
+          
           reportgenerator `
-            -reports:./artifacts/test-results/**/coverage.cobertura.xml `
-            -targetdir:./artifacts/coverage-html `
-            -reporttypes:"Html;MarkdownSummaryGithub;Cobertura;TextSummary"
+            "-reports:$($coverageFiles.FullName -join ';')" `
+            "-targetdir:./artifacts/coverage-html" `
+            "-reporttypes:Html;MarkdownSummaryGithub;Cobertura;TextSummary"
 
       - name: Display coverage summary
         if: always()
