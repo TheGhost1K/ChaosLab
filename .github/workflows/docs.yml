@@ -22,6 +22,19 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  # Убирает баннер .NET
+  DOTNET_NOLOGO: true
+  # Отключает телеметрию
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  # Пропускает инициализацию CLI
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  # Общий кэш NuGet между job'ами
+  NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages
+  # Отключает приветственное сообщение MSBuild
+  MSBUILDTERMINALLOGGER: 'off'
+  EnableWindowsTargeting: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
