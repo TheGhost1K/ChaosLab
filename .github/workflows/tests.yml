@@ -2,9 +2,9 @@ name: Tests & Coverage
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ master, develop ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
   workflow_dispatch:   # позволяет запускать вручную
 
 permissions:
@@ -51,10 +51,10 @@ jobs:
       # ───────────────────────────────────────────────────────────
 
       - name: Restore
-        run: dotnet restore ChaosLab.sln
+        run: dotnet restore ChaosLab.slnx
 
       - name: Build
-        run: dotnet build ChaosLab.sln -c Release --no-restore
+        run: dotnet build ChaosLab.slnx -c Release --no-restore
 
       # ───────────────────────────────────────────────────────────
       # 3. Подготовка runsettings (настройки из удалённого файла)
@@ -99,7 +99,7 @@ jobs:
       - name: Test with coverage
         shell: pwsh
         run: |
-          dotnet test ChaosLab.sln `
+          dotnet test ChaosLab.slnx `
             -c Release `
             --no-build `
             --report-trx `

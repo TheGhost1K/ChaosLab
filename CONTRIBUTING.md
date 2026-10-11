@@ -8,7 +8,7 @@
 ```bash
 git clone https://github.com/TheGhost1K/ChaosLab.git
 cd ChaosLab
-dotnet build ChaosLab.sln
+dotnet build ChaosLab.slnx
 dotnet test
 ```
 

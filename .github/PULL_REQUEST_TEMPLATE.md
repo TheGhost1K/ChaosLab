@@ -14,7 +14,7 @@
 
 ## Чеклист
 
-- [ ] `dotnet build ChaosLab.sln -c Release` — без warnings
+- [ ] `dotnet build ChaosLab.slnx -c Release` — без warnings
 - [ ] `dotnet test` — все тесты зелёные
 - [ ] `.editorconfig` соблюдён
 - [ ] Коммиты в стиле [Conventional Commits](https://www.conventionalcommits.org/)

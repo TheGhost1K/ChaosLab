@@ -99,7 +99,7 @@
 ```bash
 git clone https://github.com/TheGhost1K/ChaosLab.git
 cd ChaosLab
-dotnet build ChaosLab.sln -c Release
+dotnet build ChaosLab.slnx -c Release
 dotnet run --project src/ChaosLab/ChaosLab.csproj
 ```
 
