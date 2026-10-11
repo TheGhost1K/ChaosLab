@@ -36,8 +36,7 @@ bld/
 
 # DocFX
 docs/_site/
-docs/api/
-_docs_build/
+docs/api/*.yml
 docs/api/toc.yml
 !docs/api/index.md
 docs/obj/
