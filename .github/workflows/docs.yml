@@ -81,7 +81,7 @@ jobs:
           Write-Host "OK: $apiIndex exists ($((Get-Item $apiIndex).Length) bytes)"
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: 'docs/_site'
 
