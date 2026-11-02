@@ -29,7 +29,7 @@
     </PackageReference>
     
     <!-- MTP-расширения для флагов report-trx и coverage -->
-    <PackageReference Include="Microsoft.Testing.Extensions.TrxReport" Version="2.5.1" />
+    <PackageReference Include="Microsoft.Testing.Extensions.TrxReport" Version="2.5.2" />
     <PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.12.0" />
 
     <!-- Тестовые зависимости -->
